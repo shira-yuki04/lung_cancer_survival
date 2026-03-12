@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+ <div class="header">
+   <h1>Lung Cancer <br>Survival Prediction</h1>
+   </div>
+   <div class="body">
+    <form action="/predict" method="POST">
+        <div class="grid">
+        <div class="field">
+        <label>Age:</label>
+        <input type="number" name="age"><br><br>
+        </div>
+        <div class="field">
+        <label>BMI:</label>
+        <input type="number" name="bmi" step="0.1"><br><br></div>
+        <div class="field">
+        <label>Gender:</label>
+        <select name="gender" placeholder="eg: 0 or 1">
+            <option value="" disabled selected>SELECT GENDER</option>
+            <option value ="0">Female</option>
+            <option value ="1">Male</option>
+        </select><br><br> 
+        </div>
+        <div class="field">
+        <label>Country :</label>
+         <select name="country">
+            <option value="" disabled selected>SELECT COUNTRY</option>
+            <option value="0">Austria</option>
+            <option value="1">Belgium</option>
+            <option value="2">Bulgaria</option>
+            <option value="3">Croatia</option>
+            <option value="4">Cyprus</option>
+            <option value="5">Czech Republic</option>
+            <option value="6">Denmark</option>
+            <option value="7">Estonia</option>
+            <option value="8">Finland</option>
+            <option value="9">France</option>
+            <option value="10">Germany</option>
+            <option value="11">Greece</option>
+            <option value="12">Hungary</option>
+            <option value="13">Ireland</option>
+            <option value="14">Italy</option>
+            <option value="15">Latvia</option>
+            <option value="16">Lithuania</option>
+            <option value="17">Luxembourg</option>
+            <option value="18">Malta</option>
+            <option value="19">Netherlands</option>
+            <option value="20">Poland</option>
+            <option value="21">Portugal</option>
+            <option value="22">Romania</option>
+            <option value="23">Slovakia</option>
+            <option value="24">Slovenia</option>
+            <option value="25">Spain</option>
+            <option value="26">Sweden</option>
+        </select><br><br>
+        </div>
+        <div class="field">
+        <label>Cancer Stage :</label>
+        <select name="cancer_stage">
+            <option value="" disabled selected>SELECT CANCER STAGE </option>
+            <option value="0">Stage I</option>
+            <option value="1">Stage II</option>
+            <option value="2">Stage III</option>
+            <option value="3">Stage IV</option>
+        </select><br><br>
+        </div>
+        <div class="field">
+          <label>Family History:</label>
+        <select name="family_history">
+            <option value="" disabled selected>SELECT FAMILY HISTORY STATUS</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br></div>
+        <div class="field">
+        <label>Cholesterol Level:</label>
+        <input type="number" name="cholesterol_level" placeholder="Fill your cholesterol level"><br><br></div>
+        <div class="field">
+        <label>Hypertension:</label>
+        <select name="hypertension">
+            <option value="" disabled selected>SELECT HYPERTENSION STATUS</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br></div>
+        <div class="field">
+        <label>Asthma:</label>
+        <select name="asthma">
+            <option value="" disabled selected>SELECT ASTHMA STATUS</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br></div>
+        <div class="field">
+        <label>Cirrhosis:</label>
+        <select name="cirrhosis">
+            <option value="" disabled selected>SELECT CIRRHOSES STATUS</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br></div>
+        <div class="field">
+         <label>Other Cancer:</label>
+        <select name="other_cancer">
+            <option value="" disabled selected>SELECT OTHER CANCER STATUS</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br></div>
+        <div class="field">
+         <label>Smoking Status:</label>
+        <select name="smoking_status">
+            <option value="" disabled selected>SELECT SMOKING STATUS</option>
+            <option value="0">Current Smoker</option>
+            <option value="1">Former Smoker</option>
+            <option value="2">Never Smoked</option>
+            <option value="3">Passive Smoker</option>
+        </select><br><br>
+        </div>
+        <div class="field">
+        <label>Treatment Type:</label>
+        <select name="treatment_type">
+            <option value="" disabled selected>SELECT TREATMENT TYPE</option>
+            <option value="0">Chemotherapy</option>
+            <option value="1">Combined</option>
+            <option value="2">Radiation Therapy</option>
+               <option value="3">Surgery</option>
+        </select><br><br>
+        </div>
+        </div>
+        <div class="btn_contain">
+        <button type="submit">Predict</button>
+        </div>
+    </form>
+    </div>
+    <h2>{{ prediction_text }}</h2></div>
+</body>
+</html>
